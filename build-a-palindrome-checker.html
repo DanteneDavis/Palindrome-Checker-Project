@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Palindrome Checker</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 50px;
+    }
+  </style>
+</head>
+<body>
+
+  <label for="text-input">Enter Text: </label>
+  <input type="text" id="text-input">
+  <button id="check-btn">Check</button>
+  <div id="result"></div>
+
+  <script>
+    document.getElementById('check-btn').addEventListener('click', function() {
+      // Get the input value and remove non-alphanumeric characters
+      const inputText = document.getElementById('text-input').value.replace(/[^a-zA-Z0-9]/g, '').toLowerCase();
+
+      // Check if the input is empty
+      if (inputText === '') {
+        alert('Please input a value');
+        return;
+      }
+
+      // Check if the input is a palindrome
+      const isPalindrome = inputText === inputText.split('').reverse().join('');
+
+      // Display the result
+      const resultElement = document.getElementById('result');
+      resultElement.textContent = isPalindrome ? `${document.getElementById('text-input').value} is a palindrome` : `${document.getElementById('text-input').value} is not a palindrome`;
+    });
+  </script>
+
+</body>
+</html>
+
+
